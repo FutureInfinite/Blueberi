@@ -4,7 +4,9 @@
 
 This is a project for the Bluberi software engineering role. It pertains to WPF and service management using gRPC(Google).
 The following is a high level architectural diagram of the solution:
-[Architecture](Architecture.jpg)
+###Architecture](Architecture.jpg
+Architecture
+ <img src="Architecture.jpg" alt="Description of image" width="1000" Height="1000">
 
 ## Components
 
