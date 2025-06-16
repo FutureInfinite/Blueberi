@@ -131,12 +131,16 @@ namespace MessagingServer.Services
                                     To = RandomSelect(FullNames)
                                 };
 
+                                //unclear what the filtering is
+                                //will take it as an indication that once a 
+                                //message containing the word test is received
+                                //only messages that contain test will be sent
                                 if (message.Text.ToLower().Contains("test") )
                                 {
                                     IgnoreMessages  = true;
                                 }
 
-                                if (!IgnoreMessages)
+                                if (!IgnoreMessages || message.Text.ToLower().Contains("test"))
                                 {
                                     foreach (var stream in StreamManager.GetAllClients())
                                     {
@@ -177,9 +181,9 @@ namespace MessagingServer.Services
             Random Random = new Random();
             var comments = new List<string>();            
             var phrases = new[] {
-            "This is amazing!", "Totally agree!", "Wow, I had no idea.", "So cool!", "Love this!", "Can't believe it.",
-            "Thanks for sharing!", "This made my day!", "I’m not sure about this.", "Interesting perspective.", "👏👏👏", "🔥🔥🔥", "😂😂😂",
-            "this os a test"
+            "This is amazing!", "Totally agree!", "Wow, I had no idea TEST.", "So cool!", "Love this!", "Can't believe it.",
+            "Thanks for sharing! TEST", "This made my day!", "I’m not sure about this.", "Interesting perspective.", "👏👏👏", "🔥🔥🔥 TEST", "😂😂😂",
+            "this is a test"
         };
 
             for (int i = 0; i < count; i++)
